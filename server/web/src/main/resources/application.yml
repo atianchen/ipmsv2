@@ -1,0 +1,34 @@
+server:
+  port : 8080
+spring:
+  application:
+  name: recruit-web  
+  redis:  
+    host: 119.29.247.191
+    port: 6379
+    password: yonyou2016
+  session:  
+    store-type: none
+  datasource:
+    url : jdbc:mysql://119.29.247.191:3306/recruit?useUnicode=true&characterEncoding=utf-8 
+    username : ufida
+    password : ufida
+    driverClassName : com.mysql.cj.jdbc.Driver
+    datasource.max-active : 20
+    datasource.max-idle : 8
+    datasource.min-idle : 8
+    datasource.initial-size : 10
+  jpa:
+    database : MYSQL
+    show-sql : true
+    hibernate:
+      ddl-auto : update
+      naming:
+        implicit-strategy : org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy : org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        dialect : org.hibernate.dialect.MySQL5InnoDBDialect
+        connection.autocommit : false
+        current_session_context_class : org.springframework.orm.hibernate5.SpringSessionContext
+      
