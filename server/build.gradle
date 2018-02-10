@@ -1,0 +1,41 @@
+plugins {
+    id 'org.springframework.boot' version '1.5.9.RELEASE'
+}
+allprojects {  
+    apply plugin: 'java'
+    apply plugin: 'eclipse'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+    group = 'com.yonyou'  
+    version = '1.0'  
+    sourceCompatibility = 1.8  
+    targetCompatibility = 1.8 
+}  
+
+subprojects {  
+    [compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'  
+    repositories {  
+          maven{
+   		 url 'http://218.244.142.154:9090/nexus/content/groups/public'
+	}
+    }  
+    configurations {  
+        //compile.exclude module: 'commons-logging'  
+       // all*.exclude module: 'commons-logging'  
+    }  
+    dependencies {  
+        compile(
+		 'org.apache.commons:commons-lang3:3.5',
+		 'org.freemarker:freemarker:2.3.23',
+		 'org.yaml:snakeyaml:1.18',
+		 'mysql:mysql-connector-java:6.0.6',
+		 'org.apache.curator:curator-x-discovery:4.0.0',
+		 'commons-beanutils:commons-beanutils:1.9.3',
+		 'itc-base:itc-base:40',
+		  'org.springframework.boot:spring-boot-starter-web'
+        )  
+        testCompile 'junit:junit:4.12'
+    }  
+}  
+
+
